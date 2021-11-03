@@ -50,7 +50,14 @@
     </div>
 
     <script>
-        generate_plots("./palmer_penguin_species.tsv")
+        generate_plots("./palmer_penguin_species.tsv", 'culmen_length_mm', 'body_mass_g', 'flipper_length_mm',
+            'species', "#fig1")
+        generate_plots("./palmer_penguin_species.tsv", 'culmen_length_mm', 'culmen_depth_mm', 'flipper_length_mm',
+            'species', "#fig2")
+        generate_plots("./palmer_penguin_species.tsv", 'flipper_length_mm', 'culmen_length_mm', 'culmen_depth_mm',
+            'species', "#fig3")
+        generate_plots("./palmer_penguin_species.tsv", 'flipper_length_mm', 'culmen_depth_mm', 'body_mass_g', 'species',
+            "#fig4")
     </script>
 </body>
 

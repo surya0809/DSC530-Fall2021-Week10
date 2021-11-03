@@ -120,54 +120,20 @@ function scatter_plot(data,
             })
     }
 
-
-
-
 }
 
-function generate_plots(path) {
+function generate_plots(path, x, y, r, c, fig) {
     d3.tsv(path)
         .then(
             function (data) {
-                scatter_plot(format_data(data, 'culmen_length_mm', 'body_mass_g', 'flipper_length_mm', 'species'),
-                    "#fig1",
-                    title = "Pinguines _1",
-                    xLabel = "culmen_length_mm",
-                    yLabel = "body_mass_g",
+                scatter_plot(format_data(data, x, y, r, c), fig,
+                    title = x + " vs " + y,
+                    xLabel = x,
+                    yLabel = y,
                     legend = species,
                     legendcolors = classic_colors,
-                    margin = 200
-                )
-
-                scatter_plot(format_data(data, 'culmen_length_mm', 'culmen_depth_mm', 'flipper_length_mm',
-                        'species'), "#fig2",
-                    title = "Pinguines _2",
-                    xLabel = "culmen_length_mm",
-                    yLabel = "culmen_depth_mm",
-                    legend = species,
-                    legendcolors = classic_colors,
-                    margin = 200
-                )
-
-                scatter_plot(format_data(data, 'flipper_length_mm', 'culmen_length_mm', 'culmen_depth_mm',
-                        'species'), "#fig3",
-                    title = "Pinguines _3",
-                    xLabel = "flipper_length_mm",
-                    yLabel = "culmen_length_mm",
-                    legend = species,
-                    legendcolors = classic_colors,
-                    margin = 200
-                )
-
-                scatter_plot(format_data(data, 'flipper_length_mm', 'culmen_depth_mm', 'body_mass_g', 'species'),
-                    "#fig4",
-                    title = "Pinguines _4",
-                    xLabel = "flipper_length_mm",
-                    yLabel = "culmen_depth_mm",
-                    legend = species,
-                    legendcolors = classic_colors,
-                    margin = 200
-                )
+                    margin = 50
+                );
             }
         );
 }
